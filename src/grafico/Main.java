@@ -45,6 +45,10 @@ public class Main {
                 // Add any logic you want to execute when the 'hacerPedido' button is clicked
                 // For example, display a confirmation, open a new dialog, etc.
             });
+
+            cliente.addVerPedidoButtonListener(e -> {
+                JOptionPane.showMessageDialog(frame, "'¡VerPedido Clicked from Cliente screen!");
+            });
         });
     }
 }
