@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
         //AIIIIUUUUDAAAA
         SwingUtilities.invokeLater(() -> {
+            //No se como usar esta cosa :(
             frame = new JFrame("Application"); // Give a general title
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(600, 400);
