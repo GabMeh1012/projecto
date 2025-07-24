@@ -22,27 +22,27 @@ public class Main {
 
             // Mostrar primero la pantalla de Presentación
             frame.setContentPane(presentacion.getRootPanel());
-            frame.pack(); // ⬅ Ajusta automáticamente al contenido
+            frame.setSize(1920, 1080); // Tamaño compatible con imagen de portada
             frame.setLocationRelativeTo(null); // Centrar la ventana
             frame.setVisible(true);
 
-            // Acción para ir de Presentación → Portada
+            // Acción: Presentación → Portada
             presentacion.addInicioButtonListener(e -> {
                 frame.setContentPane(portada.getRootPanel());
-                frame.pack();
-                frame.setLocationRelativeTo(null);
                 frame.setTitle("Portada");
+                frame.revalidate(); // Asegura redibujado correcto
+                frame.repaint();
             });
 
-            // Acción para ir de Portada → Inicio
+            // Acción: Portada → Inicio
             portada.addStartButtonListener(e -> {
                 frame.setContentPane(inicio.getRootPanel());
-                frame.pack();
+                frame.pack(); // Empaquetar componentes de Inicio
                 frame.setLocationRelativeTo(null);
                 frame.setTitle("Inicio");
             });
 
-            // Acción para ir de Inicio → Cliente (con validación)
+            // Acción: Inicio → Cliente (con validación)
             inicio.addInicioButtonListener(e -> {
                 try {
                     String correo = inicio.getCorreo();
@@ -77,14 +77,14 @@ public class Main {
                 }
             });
 
-            // Acciones de botones en Cliente
-            cliente.addHacerPedidoButtonListener(e -> {
-                JOptionPane.showMessageDialog(frame, "¡Hacer Pedido clickeado desde Cliente!");
-            });
+            // Acciones Cliente
+            cliente.addHacerPedidoButtonListener(e ->
+                    JOptionPane.showMessageDialog(frame, "¡Hacer Pedido clickeado desde Cliente!")
+            );
 
-            cliente.addVerPedidoButtonListener(e -> {
-                JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!");
-            });
+            cliente.addVerPedidoButtonListener(e ->
+                    JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!")
+            );
         });
     }
 }

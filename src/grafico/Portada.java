@@ -1,51 +1,30 @@
 package grafico;
 
 import javax.swing.*;
+import javax.swing.border.AbstractBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.net.URL;
 import java.util.Objects;
 
 public class Portada {
     private JButton INICIARButton;
     private JPanel PPORTADA;
-    private JPanel jPLogo;
 
-    /*
+
     public Portada() {
+        PPORTADA.setBackground(null);
+        PPORTADA.setOpaque(false);
+        PPORTADA.setBorder(null);
 
-        jPLogo.setLayout(new BorderLayout());
+        if(INICIARButton != null) {
+            INICIARButton.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
+            INICIARButton.setOpaque(false);
+            INICIARButton.setContentAreaFilled(false);  // opcional: hace que el fondo no se pinte
+            INICIARButton.setFocusPainted(false);   // opcional: elimina el borde al enfocarse
 
-        colocarImagenEscalada();
-
-
-        jPLogo.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e){
-                colocarImagenEscalada();
-            }
-        });
-    }
-
-     */
-
-    private void colocarImagenEscalada() {
-        try {
-            ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/logo.png")));
-            int ancho = jPLogo.getWidth();
-            int alto = jPLogo.getHeight();
-
-            if (ancho > 0 && alto > 0) {
-                Image imagenEscalada = originalIcon.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-                JLabel imagenLabel = new JLabel(new ImageIcon(imagenEscalada));
-                jPLogo.removeAll();  // Limpia contenido previo
-                jPLogo.add(imagenLabel, BorderLayout.CENTER);
-                jPLogo.revalidate();
-                jPLogo.repaint();
-            }
-        } catch (Exception e) {
-            System.err.println("Error cargando imagen: " + e.getMessage());
         }
     }
 
@@ -68,17 +47,57 @@ public class Portada {
         private Image imagen;
 
         @Override
-        public void paint(Graphics g) {
-            imagen = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/Portada.png"))).getImage();
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
 
             if (imagen == null) {
-                System.err.println("Error: Image not loaded for Portada.png!");
-                return; // Don't try to draw a null image
+                URL url = getClass().getResource("/grafico/Picture/Portada.png");
+
+                if (url == null) {
+                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                } else {
+                    imagen = new ImageIcon(url).getImage();
+                    System.out.println("✅ Image loaded successfully.");
+                }
             }
 
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-            setOpaque(false);
-            super.paint(g);
+            if (imagen != null) {
+                g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            }
+        }
+    }
+
+
+    // Clase interna para borde redondeado
+    private static class RoundedBorder extends AbstractBorder {
+        private final int radius;
+        private final Color borderColor;
+        private final int borderThickness;
+
+        public RoundedBorder(int radius, Color borderColor, int borderThickness) {
+            this.radius = radius;
+            this.borderColor = borderColor;
+            this.borderThickness = borderThickness;
+        }
+
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setColor(borderColor);
+            g2.setStroke(new BasicStroke(borderThickness));
+            g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+            g2.dispose();
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c, Insets insets) {
+            insets.set(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
+            return insets;
         }
     }
 
