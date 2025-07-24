@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="grafico.Pedido">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="PPEDIDO" layout-manager="GridLayoutManager" row-count="5" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="23" y="38" width="780" height="457"/>
@@ -76,18 +76,6 @@
         </constraints>
         <properties>
           <text value="volver"/>
-        </properties>
-      </component>
-      <component id="677ad" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="4" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="80" height="121"/>
-          </grid>
-        </constraints>
-        <properties>
-          <horizontalAlignment value="0"/>
-          <icon value="grafico/Picture/logo100.png"/>
-          <text value=""/>
         </properties>
       </component>
       <component id="6217b" class="javax.swing.JLabel">

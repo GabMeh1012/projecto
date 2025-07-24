@@ -8,6 +8,7 @@ public class Main {
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
+    private static Pedido pedido;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -79,10 +80,12 @@ public class Main {
                 }
             });
 
-            // Acciones Cliente
-            cliente.addHacerPedidoButtonListener(e ->
-                    JOptionPane.showMessageDialog(frame, "¡Hacer Pedido clickeado desde Cliente!")
-            );
+            // Acción: Cliente - Hacer Pedido → Pedido (con validación)
+
+            cliente.addHacerPedidoButtonListener(e -> {
+                frame.setVisible(false);     // Oculta la ventana de Cliente
+                new Pedido(frame);           // Abre Pedido pasando la ventana actual
+            });
 
             cliente.addVerPedidoButtonListener(e ->
                     JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!")
