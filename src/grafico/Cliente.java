@@ -123,8 +123,12 @@ public class Cliente {
 
 
     // You'll likely need a method to return the root panel for the JFrame/JPanel
-    public JPanel getRootPanel() {
-        return PCLIENTE;
+    public JScrollPane getRootPanel() {
+
+        JScrollPane scrollPane = new JScrollPane(PCLIENTE);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        return scrollPane;
     }
 
 
