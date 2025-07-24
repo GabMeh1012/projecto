@@ -31,7 +31,7 @@
           <text value="Seleccione un Producto"/>
         </properties>
       </component>
-      <component id="e0d02" class="javax.swing.JButton" binding="SARIL$300Button" default-binding="true">
+      <component id="e0d02" class="javax.swing.JButton" binding="BSARIL">
         <constraints>
           <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -40,7 +40,7 @@
           <text value="SARIL $ 3.00 lb "/>
         </properties>
       </component>
-      <component id="8f60f" class="javax.swing.JButton" binding="GUANDÚ$250Button" default-binding="true">
+      <component id="8f60f" class="javax.swing.JButton" binding="BGUANDU">
         <constraints>
           <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="123" height="34"/>
@@ -70,7 +70,7 @@
           </grid>
         </constraints>
       </hspacer>
-      <component id="be852" class="javax.swing.JButton" binding="volverButton" default-binding="true">
+      <component id="be852" class="javax.swing.JButton" binding="BVolver">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -108,7 +108,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="6211a" class="javax.swing.JButton" default-binding="true">
+      <component id="6211a" class="javax.swing.JButton" binding="BCOMBO">
         <constraints>
           <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

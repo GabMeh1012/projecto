@@ -8,9 +8,10 @@ import java.net.URL; // Important for loading resources
 
 
 public class Pedido extends JFrame {
-    private JButton SARIL$300Button;
-    private JButton GUANDÚ$250Button;
-    private JButton volverButton;
+    private JButton BSARIL;
+    private JButton BGUANDU;
+    private JButton BVolver;
+    private JButton BCOMBO;
     private JPanel panelPrincipal;
 
     public Pedido() {
@@ -29,9 +30,9 @@ public class Pedido extends JFrame {
         panelPrincipal.add(labelTitulo);
 
         // Botón volver
-        volverButton = new JButton("Volver");
-        volverButton.setBounds(50, 20, 80, 30);
-        panelPrincipal.add(volverButton);
+        BVolver = new JButton("Volver");
+        BVolver.setBounds(50, 20, 80, 30);
+        panelPrincipal.add(BVolver);
 
         // Logo
         JLabel labelLogo = new JLabel();
@@ -51,9 +52,9 @@ public class Pedido extends JFrame {
         labelSaril.setBounds(100, 330, 120, 20);
         panelPrincipal.add(labelSaril);
 
-        SARIL$300Button = new JButton("Agregar SARIL");
-        SARIL$300Button.setBounds(90, 360, 130, 25);
-        panelPrincipal.add(SARIL$300Button);
+        BSARIL = new JButton("Agregar SARIL");
+        BSARIL.setBounds(90, 360, 130, 25);
+        panelPrincipal.add(BSARIL);
 
         // Imagen y etiqueta GUANDÚ
         JLabel imgGuandu = new JLabel();
@@ -66,12 +67,12 @@ public class Pedido extends JFrame {
         labelGuandu.setBounds(400, 330, 120, 20);
         panelPrincipal.add(labelGuandu);
 
-        GUANDÚ$250Button = new JButton("Agregar GUANDÚ");
-        GUANDÚ$250Button.setBounds(390, 360, 140, 25);
-        panelPrincipal.add(GUANDÚ$250Button);
+        BGUANDU = new JButton("Agregar GUANDÚ");
+        BGUANDU.setBounds(390, 360, 140, 25);
+        panelPrincipal.add(BGUANDU);
 
         // Acción del botón volver
-        volverButton.addActionListener(new ActionListener() {
+        BVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose(); // o cambiar a la pantalla anterior si existe
@@ -92,7 +93,7 @@ public class Pedido extends JFrame {
             super.paintComponent(g);
 
             if (imagen == null) {
-                URL url = getClass().getResource("/grafico/Picture/Cliente.png");
+                URL url = getClass().getResource("/grafico/Picture/Pedido.png");
 
                 if (url == null) {
                     System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
