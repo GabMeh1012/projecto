@@ -33,11 +33,39 @@ public class Main {
                 frame.setTitle("Inicio"); // Change title if desired
 
             });
-            inicio.addInicioButtonListener(e -> { // Example: using 'bInicio' from Inicio
-                frame.setContentPane(cliente.getRootPanel());
-                frame.revalidate();
-                frame.repaint();
-                frame.setTitle("Cliente"); // Change title for the Cliente screen
+            inicio.addInicioButtonListener(e -> {
+                try {
+                    String correo = inicio.getCorreo();
+                    String contrasena = inicio.getContrasena();
+
+                    if (correo == null || correo.isEmpty()) {
+                        throw new IllegalArgumentException("El campo de correo no puede estar vacío.");
+                    }
+
+                    if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+                        throw new IllegalArgumentException("El formato del correo no es válido.");
+                    }
+
+                    if (contrasena == null || contrasena.isEmpty()) {
+                        throw new IllegalArgumentException("La contraseña no puede estar vacía.");
+                    }
+
+                    if (contrasena.length() < 6) {
+                        throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
+                    }
+
+                    // Si todo está correcto, muestra la pantalla del cliente
+                    frame.setContentPane(cliente.getRootPanel());
+                    frame.revalidate();
+                    frame.repaint();
+                    frame.setTitle("Cliente");
+
+                } catch (IllegalArgumentException ex) {
+                    JOptionPane.showMessageDialog(frame, ex.getMessage(), "Error de Validación", JOptionPane.ERROR_MESSAGE);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(frame, "Ha ocurrido un error inesperado.", "Error", JOptionPane.ERROR_MESSAGE);
+                    ex.printStackTrace(); // para depurar
+                }
             });
 
             // 4. Optional: Action listener for hacerPedidoButton in Cliente

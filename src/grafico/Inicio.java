@@ -18,6 +18,14 @@ public class Inicio {
         return fondo;
     }
 
+    public String getCorreo() {
+        return txtCorreo.getText().trim();
+    }
+
+    public String getContrasena() {
+        return new String(passContra.getPassword()).trim();
+    }
+
     // This method allows the Main class to attach a listener to bInicio
     public void addInicioButtonListener(ActionListener listener) {
         if (bInicio != null) {
