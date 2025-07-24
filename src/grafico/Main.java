@@ -1,7 +1,7 @@
 package grafico;
 
 import javax.swing.*;
-
+//Hola Gabyyyyy
 public class Main {
     private static JFrame frame;
     private static Portada portada;
