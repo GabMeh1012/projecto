@@ -1,7 +1,7 @@
 package grafico;
 
 import javax.swing.*;
-
+//Hola Gabyyyyy
 public class Main {
     private static JFrame frame;
     private static Portada portada;
@@ -9,7 +9,9 @@ public class Main {
     private static Cliente cliente;
 
     public static void main(String[] args) {
+        //AIIIIUUUUDAAAA
         SwingUtilities.invokeLater(() -> {
+            //No se como usar esta cosa :(
             frame = new JFrame("Application"); // Give a general title
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(600, 400);
