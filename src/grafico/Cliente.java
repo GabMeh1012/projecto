@@ -5,12 +5,12 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.net.URL; // Important for loading resources
+import java.net.URL;
 import java.util.Objects;
 
 //PARA QUE LOS BORDERS DE LOS BUTTONS QUEDEN ROUND
 import javax.swing.border.AbstractBorder;
 import java.awt.*;
-
 
 public class Cliente {
     private JPanel PCLIENTE;
@@ -114,28 +114,6 @@ public class Cliente {
     }
 
 
-    /*
-    private void colocarImagenEscalada() {
-        try {
-            ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/fondo_logo.png")));
-            int ancho = JPLogo.getWidth();
-            int alto = JPLogo.getHeight();
-
-            if (ancho > 0 && alto > 0) {
-                Image imagenEscalada = originalIcon.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH);
-                JLabel imagenLabel = new JLabel(new ImageIcon(imagenEscalada));
-                JPLogo.removeAll();  // Limpia contenido previo
-                JPLogo.add(imagenLabel, BorderLayout.CENTER);
-                JPLogo.revalidate();
-                JPLogo.repaint();
-            }
-        } catch (Exception e) {
-            System.err.println("Error cargando imagen: " + e.getMessage());
-        }
-    }
-
-     */
-
     // Optional: If you need to add an ActionListener from outside
     public void addHacerPedidoButtonListener(java.awt.event.ActionListener listener) {
         if (hacerPedidoB != null) {
@@ -185,6 +163,35 @@ public class Cliente {
             return insets;
         }
     }
+
+
+    //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
+    class FondoInicio extends JPanel {
+        private Image imagen;
+
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            if (imagen == null) {
+                URL url = getClass().getResource("/grafico/Picture/Inicio.png");
+
+                if (url == null) {
+                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                } else {
+                    imagen = new ImageIcon(url).getImage();
+                    System.out.println("✅ Image loaded successfully.");
+                }
+            }
+
+            if (imagen != null) {
+                g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            }
+        }
+    }
+
+
 
 
 }
