@@ -19,6 +19,8 @@ public class Portada {
         PPORTADA.setOpaque(false);
         PPORTADA.setBorder(null);
 
+        PPORTADA.setPreferredSize(new Dimension(1920, 1080)); // Forzar tamaño completo
+
         if(INICIARButton != null) {
             INICIARButton.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
             INICIARButton.setOpaque(false);

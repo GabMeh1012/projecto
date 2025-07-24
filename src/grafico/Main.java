@@ -37,9 +37,11 @@ public class Main {
             // Acción: Portada → Inicio
             portada.addStartButtonListener(e -> {
                 frame.setContentPane(inicio.getRootPanel());
-                frame.pack(); // Empaquetar componentes de Inicio
+                frame.setSize(1920, 1080); // Mantener tamaño pantalla completa
                 frame.setLocationRelativeTo(null);
                 frame.setTitle("Inicio");
+                frame.revalidate();
+                frame.repaint();
             });
 
             // Acción: Inicio → Cliente (con validación)

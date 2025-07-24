@@ -16,6 +16,9 @@ public class Presentación {
         panelPresentacion.setBorder(null);     // sin borde
         panelPresentacion.setOpaque(true);     // dejarlo visible
 
+        // Asegurar tamaño de pantalla
+        panelPresentacion.setPreferredSize(new Dimension(1920, 1080));
+
         // Aplicar el borde redondeado con color azul y grosor 3
         if (inicioButton != null) {
             //inicioButton.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
