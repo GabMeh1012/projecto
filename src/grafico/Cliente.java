@@ -21,9 +21,21 @@ public class Cliente {
     // Constructor
     public Cliente() {
 
+        PCLIENTE.setBackground(null);
+        PCLIENTE.setOpaque(false);
+        PCLIENTE.setBorder(null);
+
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
         setHPedidoButtonIcon();
+    }
+
+
+    public JPanel getRootPane() {
+        FondoCliente fondo = new FondoCliente();
+        fondo.setLayout(new BorderLayout());
+        fondo.add(PCLIENTE, BorderLayout.CENTER);
+        return fondo;
     }
 
     // Renamed for clarity to reflect its purpose
@@ -166,7 +178,7 @@ public class Cliente {
 
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
-    class FondoInicio extends JPanel {
+    class FondoCliente extends JPanel {
         private Image imagen;
 
 
@@ -175,7 +187,7 @@ public class Cliente {
             super.paintComponent(g);
 
             if (imagen == null) {
-                URL url = getClass().getResource("/grafico/Picture/Inicio.png");
+                URL url = getClass().getResource("/grafico/Picture/Cliente.png");
 
                 if (url == null) {
                     System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
