@@ -1,4 +1,5 @@
-package grafico;
+
+/*package grafico;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -14,3 +15,5 @@ public class Prueba extends Application {
 
     }
 }
+
+ */

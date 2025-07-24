@@ -126,7 +126,7 @@ public class Cliente {
 
     private void colocarImagenEscalada() {
         try {
-            ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/logo.png")));
+            ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/fondo_logo.png")));
             int ancho = JPLogo.getWidth();
             int alto = JPLogo.getHeight();
 
