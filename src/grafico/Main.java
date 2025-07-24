@@ -1,38 +1,48 @@
 package grafico;
 
 import javax.swing.*;
-//Hola Gabyyyyy
+
 public class Main {
     private static JFrame frame;
+    private static Presentación presentacion;
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
 
     public static void main(String[] args) {
-        //AIIIIUUUUDAAAA
         SwingUtilities.invokeLater(() -> {
-            //No se como usar esta cosa :(
-            frame = new JFrame("Application"); // Give a general title
+            frame = new JFrame("Application");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(600, 400);
-            frame.setLocationRelativeTo(null); // Centrar la ventana
 
+            // Instanciar todas las pantallas
+            presentacion = new Presentación();
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
 
-            // Set the initial panel to Portada
-            frame.setContentPane(portada.getRootPanel());
+            // Mostrar primero la pantalla de Presentación
+            frame.setContentPane(presentacion.getRootPanel());
+            frame.pack(); // ⬅ Ajusta automáticamente al contenido
+            frame.setLocationRelativeTo(null); // Centrar la ventana
             frame.setVisible(true);
 
+            // Acción para ir de Presentación → Portada
+            presentacion.addInicioButtonListener(e -> {
+                frame.setContentPane(portada.getRootPanel());
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Portada");
+            });
 
+            // Acción para ir de Portada → Inicio
             portada.addStartButtonListener(e -> {
                 frame.setContentPane(inicio.getRootPanel());
-                frame.revalidate(); // Re-layout the components
-                frame.repaint();    // Repaint the frame to show the new content
-                frame.setTitle("Inicio"); // Change title if desired
-
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setTitle("Inicio");
             });
+
+            // Acción para ir de Inicio → Cliente (con validación)
             inicio.addInicioButtonListener(e -> {
                 try {
                     String correo = inicio.getCorreo();
@@ -54,35 +64,27 @@ public class Main {
                         throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
                     }
 
-                    // Si todo está correcto, muestra la pantalla del cliente
                     frame.setContentPane(cliente.getRootPanel());
-                    frame.revalidate();
-                    frame.repaint();
+                    frame.pack();
+                    frame.setLocationRelativeTo(null);
                     frame.setTitle("Cliente");
 
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage(), "Error de Validación", JOptionPane.ERROR_MESSAGE);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(frame, "Ha ocurrido un error inesperado.", "Error", JOptionPane.ERROR_MESSAGE);
-                    ex.printStackTrace(); // para depurar
+                    ex.printStackTrace();
                 }
             });
 
-            // 4. Optional: Action listener for hacerPedidoButton in Cliente
-            //    This is for handling the click event on the image button once you are on the Cliente screen.
+            // Acciones de botones en Cliente
             cliente.addHacerPedidoButtonListener(e -> {
-                JOptionPane.showMessageDialog(frame, "¡Hacer Pedido Clicked from Cliente screen!");
-                // Add any logic you want to execute when the 'hacerPedido' button is clicked
-                // For example, display a confirmation, open a new dialog, etc.
+                JOptionPane.showMessageDialog(frame, "¡Hacer Pedido clickeado desde Cliente!");
             });
 
             cliente.addVerPedidoButtonListener(e -> {
-                JOptionPane.showMessageDialog(frame, "'¡VerPedido Clicked from Cliente screen!");
+                JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!");
             });
         });
     }
-
-
-
-    
 }

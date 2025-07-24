@@ -17,25 +17,9 @@ public class Cliente {
     private JButton hacerPedidoB;
     private JButton verPedidoB;
     private JButton hPedidoB;
-    private JPanel JPLogo;
 
     // Constructor
     public Cliente() {
-
-       /* JPLogo.setLayout(new BorderLayout());
-
-        colocarImagenEscalada();
-
-
-        JPLogo.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e){
-                colocarImagenEscalada();
-            }
-        });
-
-        */
-
 
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
@@ -123,11 +107,16 @@ public class Cliente {
 
 
     // You'll likely need a method to return the root panel for the JFrame/JPanel
-    public JPanel getRootPanel() {
-        return PCLIENTE;
+    public JScrollPane getRootPanel() {
+
+        JScrollPane scrollPane = new JScrollPane(PCLIENTE);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        return scrollPane;
     }
 
 
+    /*
     private void colocarImagenEscalada() {
         try {
             ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/fondo_logo.png")));
@@ -146,6 +135,8 @@ public class Cliente {
             System.err.println("Error cargando imagen: " + e.getMessage());
         }
     }
+
+     */
 
     // Optional: If you need to add an ActionListener from outside
     public void addHacerPedidoButtonListener(java.awt.event.ActionListener listener) {
