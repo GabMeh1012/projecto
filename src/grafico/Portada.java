@@ -12,6 +12,7 @@ public class Portada {
     private JPanel PPORTADA;
     private JPanel jPLogo;
 
+    /*
     public Portada() {
 
         jPLogo.setLayout(new BorderLayout());
@@ -26,6 +27,8 @@ public class Portada {
             }
         });
     }
+
+     */
 
     private void colocarImagenEscalada() {
         try {

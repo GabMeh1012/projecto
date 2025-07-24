@@ -21,7 +21,8 @@ public class Cliente {
 
     // Constructor
     public Cliente() {
-        JPLogo.setLayout(new BorderLayout());
+
+       /* JPLogo.setLayout(new BorderLayout());
 
         colocarImagenEscalada();
 
@@ -32,6 +33,9 @@ public class Cliente {
                 colocarImagenEscalada();
             }
         });
+
+        */
+
 
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
@@ -161,7 +165,6 @@ public class Cliente {
         }
     }
 
-
     class RoundedBorder extends AbstractBorder {
         private int radius;
 
@@ -189,7 +192,6 @@ public class Cliente {
             return insets;
         }
     }
-
 
 
 }
