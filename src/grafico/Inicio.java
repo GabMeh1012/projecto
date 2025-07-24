@@ -102,8 +102,6 @@ public class Inicio {
     }
 
 
-
-
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
     class FondoInicio extends JPanel {
         private Image imagen;

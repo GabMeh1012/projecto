@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL; // Important for loading resources
+
 
 public class Pedido extends JFrame {
     private JButton SARIL$300Button;
@@ -80,7 +82,31 @@ public class Pedido extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args) {
-        new Pedido();
+    //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
+    class FondoCliente extends JPanel {
+        private Image imagen;
+
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+
+            if (imagen == null) {
+                URL url = getClass().getResource("/grafico/Picture/Cliente.png");
+
+                if (url == null) {
+                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                } else {
+                    imagen = new ImageIcon(url).getImage();
+                    System.out.println("✅ Image loaded successfully.");
+                }
+            }
+
+            if (imagen != null) {
+                g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            }
+        }
     }
+
+
 }

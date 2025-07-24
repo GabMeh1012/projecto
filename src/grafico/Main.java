@@ -66,7 +66,7 @@ public class Main {
                         throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
                     }
 
-                    frame.setContentPane(cliente.getRootPanel());
+                    frame.setContentPane(cliente.getRootPanel()); // en vez de getRootPane()
                     frame.pack();
                     frame.setLocationRelativeTo(null);
                     frame.setTitle("Cliente");

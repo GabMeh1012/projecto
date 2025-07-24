@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.net.URL; // Important for loading resources
-import java.net.URL;
 import java.util.Objects;
 
 //PARA QUE LOS BORDERS DE LOS BUTTONS QUEDEN ROUND
@@ -31,10 +30,11 @@ public class Cliente {
     }
 
 
-    public JPanel getRootPane() {
+    public JPanel getRootPanel() {
         FondoCliente fondo = new FondoCliente();
         fondo.setLayout(new BorderLayout());
         fondo.add(PCLIENTE, BorderLayout.CENTER);
+        fondo.setPreferredSize(new Dimension(1920, 1080)); // Para asegurar tamaño
         return fondo;
     }
 
@@ -58,7 +58,7 @@ public class Cliente {
                 if (hacerPedidoB != null) {
                     hacerPedidoB.setIcon(icon);
 
-                    hacerPedidoB.setBorder(new RoundedBorder(50, new Color(228,158,86), 3));
+                    hacerPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
                     hacerPedidoB.setContentAreaFilled(false);
                     hacerPedidoB.setFocusPainted(false);
                 } else {
@@ -85,7 +85,7 @@ public class Cliente {
                 Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 verPedidoB.setIcon(new ImageIcon(image));
 
-                verPedidoB.setBorder(new RoundedBorder(50, new Color(228,158,86), 3));
+                verPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
                 verPedidoB.setContentAreaFilled(false);
                 verPedidoB.setFocusPainted(false);
             } else {
@@ -105,7 +105,7 @@ public class Cliente {
                 Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 hPedidoB.setIcon(new ImageIcon(image));
 
-                hPedidoB.setBorder(new RoundedBorder(50, new Color(228,158,86), 3));
+                hPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
                 hPedidoB.setContentAreaFilled(false);
                 hPedidoB.setFocusPainted(false);
             } else {
@@ -114,15 +114,6 @@ public class Cliente {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    // You'll likely need a method to return the root panel for the JFrame/JPanel
-    public JScrollPane getRootPanel() {
-
-        JScrollPane scrollPane = new JScrollPane(PCLIENTE);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        return scrollPane;
     }
 
 
@@ -143,6 +134,7 @@ public class Cliente {
             hacerPedidoB.addActionListener(listener);
         }
     }
+
 
     class RoundedBorder extends AbstractBorder {
         private int radius;
@@ -202,8 +194,6 @@ public class Cliente {
             }
         }
     }
-
-
 
 
 }
