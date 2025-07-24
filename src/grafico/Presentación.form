@@ -35,15 +35,6 @@
           <text value="Gabriela Fuentes                                       8-1042-245"/>
         </properties>
       </component>
-      <component id="2cdcd" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Baskerville Old Face" size="18"/>
-          <text value="Laura Orellana"/>
-        </properties>
-      </component>
       <component id="3238b" class="javax.swing.JLabel">
         <constraints>
           <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -130,6 +121,15 @@
           </grid>
         </constraints>
       </hspacer>
+      <component id="2cdcd" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Baskerville Old Face" size="18"/>
+          <text value="Laura Orellana                                         20-16-7977"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
