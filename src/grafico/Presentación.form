@@ -68,7 +68,7 @@
         </constraints>
         <properties>
           <font name="Baskerville Old Face" size="18"/>
-          <text value="Profesor: Rodrigo Yanguez"/>
+          <text value="Profesor: Rodrigo Yangüez"/>
         </properties>
       </component>
       <component id="20599" class="javax.swing.JLabel">
