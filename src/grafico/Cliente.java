@@ -17,25 +17,9 @@ public class Cliente {
     private JButton hacerPedidoB;
     private JButton verPedidoB;
     private JButton hPedidoB;
-    private JPanel JPLogo;
 
     // Constructor
     public Cliente() {
-
-       /* JPLogo.setLayout(new BorderLayout());
-
-        colocarImagenEscalada();
-
-
-        JPLogo.addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e){
-                colocarImagenEscalada();
-            }
-        });
-
-        */
-
 
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
@@ -132,6 +116,7 @@ public class Cliente {
     }
 
 
+    /*
     private void colocarImagenEscalada() {
         try {
             ImageIcon originalIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource("/grafico/Picture/fondo_logo.png")));
@@ -150,6 +135,8 @@ public class Cliente {
             System.err.println("Error cargando imagen: " + e.getMessage());
         }
     }
+
+     */
 
     // Optional: If you need to add an ActionListener from outside
     public void addHacerPedidoButtonListener(java.awt.event.ActionListener listener) {
