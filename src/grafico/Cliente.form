@@ -17,6 +17,8 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-13947600"/>
+          <foreground color="-2104859"/>
           <text value="Hacer Pedido"/>
         </properties>
       </component>
