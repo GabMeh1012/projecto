@@ -9,6 +9,7 @@ public class Main {
     private static Cliente cliente;
 
     public static void main(String[] args) {
+        //AIIIIUUUUDAAAA
         SwingUtilities.invokeLater(() -> {
             frame = new JFrame("Application"); // Give a general title
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
