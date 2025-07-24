@@ -7,6 +7,10 @@ import java.awt.event.ComponentEvent;
 import java.net.URL; // Important for loading resources
 import java.util.Objects;
 
+//PARA QUE LOS BORDERS DE LOS BUTTONS QUEDEN ROUND
+import javax.swing.border.AbstractBorder;
+import java.awt.*;
+
 
 public class Cliente {
     private JPanel PCLIENTE;
@@ -31,13 +35,14 @@ public class Cliente {
 
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
+        setHPedidoButtonIcon();
     }
 
     // Renamed for clarity to reflect its purpose
     private void setHacerPedidoButtonIcon() {
         ImageIcon icon = null;
         try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/hacerPedido1.png");
+            URL imageUrl = getClass().getResource("/grafico/Picture/hacer.png");
 
             if (imageUrl != null) {
                 icon = new ImageIcon(imageUrl);
@@ -53,7 +58,7 @@ public class Cliente {
                 if (hacerPedidoB != null) {
                     hacerPedidoB.setIcon(icon);
 
-                    hacerPedidoB.setBorderPainted(false);
+                    hacerPedidoB.setBorder(new RoundedBorder(50));
                     hacerPedidoB.setContentAreaFilled(false);
                     hacerPedidoB.setFocusPainted(false);
                 } else {
@@ -73,18 +78,18 @@ public class Cliente {
 
     private void setVerPedidoButtonIcon() {
         try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/ver2.png");
+            URL imageUrl = getClass().getResource("/grafico/Picture/ver3.2.png");
 
             if (imageUrl != null) {
                 ImageIcon icon = new ImageIcon(imageUrl);
                 Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 verPedidoB.setIcon(new ImageIcon(image));
 
-                verPedidoB.setBorderPainted(false);
+                verPedidoB.setBorder(new RoundedBorder(50));
                 verPedidoB.setContentAreaFilled(false);
                 verPedidoB.setFocusPainted(false);
             } else {
-                System.err.println("Image not found: verPedido.png");
+                System.err.println("Image not found: ver3.2.png");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,14 +98,14 @@ public class Cliente {
 
     private void setHPedidoButtonIcon() {
         try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/hPedido.png");
+            URL imageUrl = getClass().getResource("/grafico/Picture/hist2.2.png");
 
             if (imageUrl != null) {
                 ImageIcon icon = new ImageIcon(imageUrl);
                 Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
                 hPedidoB.setIcon(new ImageIcon(image));
 
-                hPedidoB.setBorderPainted(false);
+                hPedidoB.setBorder(new RoundedBorder(50));
                 hPedidoB.setContentAreaFilled(false);
                 hPedidoB.setFocusPainted(false);
             } else {
@@ -149,5 +154,42 @@ public class Cliente {
             verPedidoB.addActionListener(listener);
         }
     }
+
+    public void setHacerPedidoB(java.awt.event.ActionListener listener) {
+        if(hacerPedidoB != null) {
+            hacerPedidoB.addActionListener(listener);
+        }
+    }
+
+
+    class RoundedBorder extends AbstractBorder {
+        private int radius;
+
+        public RoundedBorder(int radius) {
+            this.radius = radius;
+        }
+
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(1));
+            g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+            g2.dispose();
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(radius + 1, radius + 1, radius + 1, radius + 1);
+        }
+
+        @Override
+        public Insets getBorderInsets(Component c, Insets insets) {
+            insets.set(radius + 1, radius + 1, radius + 1, radius + 1);
+            return insets;
+        }
+    }
+
+
 
 }
