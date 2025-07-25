@@ -1,6 +1,8 @@
 
 package grafico;
 
+import grafico.Historial.Historial;
+
 import javax.swing.*;
 
 public class Main {
@@ -83,9 +85,22 @@ public class Main {
                 frame.repaint();
 
             });
+            cliente.addHPedidoButtonListener(e -> {
+                Historial historial = new Historial(frame, cliente);
+                frame.setContentPane(historial.getRootPanel());
+                frame.setTitle("Historial");
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            });
+
 
             cliente.addVerPedidoButtonListener(e ->
                     JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!"));
         });
+
+
+
+
     }
 }

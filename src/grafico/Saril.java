@@ -19,33 +19,30 @@ public class Saril extends JFrame{
     private JCalendar JCalendar3;
     private com.toedter.calendar.JCalendar calendario;
 
+    private JFrame ventanaAnterior;
 
-    public Saril() {
+    public Saril(JFrame ventanaAnterior) {
 
-
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null); // Centrar la ventana
-
-        // Agregar opciones al ComboBox
-        FormaRetiro.addItem("Retiro local");
-        FormaRetiro.addItem("Domicilio");
-
-        // Lógica para actualizar el campo según la opción seleccionada
-        FormaRetiro.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String seleccion = (String) FormaRetiro.getSelectedItem();
-                CampoRetiro.setText(seleccion);
-            }
-        });
+        this.ventanaAnterior = ventanaAnterior; // Store the reference
+        setContentPane(getRootPanel());
+        setSize(800, 600);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // Acción del botón Volver
-        volverButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose(); // Solo cierra esta ventana
-            }
+        volverButton.addActionListener(e -> {
+            this.ventanaAnterior.setVisible(true); // Make the previous window visible
+            dispose(); // Close current window (Saril)
         });
+
+        // ComboBox lógica
+        FormaRetiro.addActionListener(e -> {
+            String seleccion = (String) FormaRetiro.getSelectedItem();
+            CampoRetiro.setText(seleccion);
+        });
+        setVisible(true); // Make Saril window visible when created
+
+
     }
 
     private void createUIComponents() {
@@ -67,7 +64,6 @@ public class Saril extends JFrame{
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
     class FondoSaril extends JPanel {
         private Image imagen;
-
 
         @Override
         protected void paintComponent(Graphics g) {

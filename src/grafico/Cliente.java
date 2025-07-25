@@ -23,6 +23,7 @@ public class Cliente {
         PCLIENTE.setBackground(null);
         PCLIENTE.setOpaque(false);
         PCLIENTE.setBorder(null);
+        PCLIENTE.setSize(new Dimension(1000, 700));
 
 
         setHacerPedidoButtonIcon();
@@ -129,6 +130,13 @@ public class Cliente {
             verPedidoB.addActionListener(listener);
         }
     }
+
+    public void addHPedidoButtonListener(java.awt.event.ActionListener listener) {
+        if (hPedidoB != null) {
+            hPedidoB.addActionListener(listener);
+        }
+    }
+
 
     public void setHacerPedidoB(java.awt.event.ActionListener listener) {
         if(hacerPedidoB != null) {
