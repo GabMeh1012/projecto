@@ -20,12 +20,15 @@ public class Saril extends JFrame{
     private JCalendar JCalendar1;
     private JCalendar JCalendar2;
     private JCalendar JCalendar3;
+    private MiPedido miPedido; // ← importante
 
     private JFrame ventanaAnterior;
 
-    public Saril(JFrame ventanaAnterior) {
+    public Saril(JFrame ventanaAnterior, MiPedido miPedido) {
 
-        this.ventanaAnterior = ventanaAnterior; // Store the reference
+        this.ventanaAnterior = ventanaAnterior; // Referencia de ventana anterior
+        this.miPedido = miPedido;
+
         setContentPane(getRootPanel());
         setSize(800, 600);
         setLocationRelativeTo(null);
@@ -37,13 +40,23 @@ public class Saril extends JFrame{
             dispose(); // Close current window (Saril)
         });
 
-        // ComboBox lógica
-        FormaRetiro.addActionListener(e -> {
-            String seleccion = (String) FormaRetiro.getSelectedItem();
+        EnviarPedido.addActionListener(e -> {
+            String cantidad = CampoCantidad.getText();
+            String fecha = CampoFecha.getText();
+            String forma = (String) FormaRetiro.getSelectedItem();
 
+            miPedido.actualizarPedido(cantidad, fecha, forma);
+
+            ventanaAnterior.setContentPane(miPedido.getRootPanel());
+            ventanaAnterior.setTitle("Mi Pedido");
+            ventanaAnterior.pack();
+            ventanaAnterior.setLocationRelativeTo(null);
+            ventanaAnterior.setVisible(true);
+
+            dispose(); // Cierra Saril
         });
-        setVisible(true); // Make Saril window visible when created
 
+        setVisible(true);
     }
 
     private void createUIComponents() {

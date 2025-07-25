@@ -20,8 +20,9 @@
         <children>
           <component id="11559" class="javax.swing.JLabel">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="97" height="267"/>
+                <maximum-size width="100" height="100"/>
               </grid>
             </constraints>
             <properties>
@@ -43,15 +44,6 @@
         <properties>
           <icon value="grafico/Picture/sariltrans.png"/>
           <text value=""/>
-        </properties>
-      </component>
-      <component id="24a15" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Artifakt Element Heavy" size="20"/>
-          <text value="3 Libras"/>
         </properties>
       </component>
       <vspacer id="be4d5">
@@ -78,13 +70,13 @@
           <text value="Total"/>
         </properties>
       </component>
-      <component id="f3e35" class="javax.swing.JLabel">
+      <component id="f3e35" class="javax.swing.JLabel" binding="lbFecha">
         <constraints>
           <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Artifakt Element Heavy" size="20"/>
-          <text value="4 Julio"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="90ffb" class="javax.swing.JLabel">
@@ -128,13 +120,13 @@
           <text value="Fecha"/>
         </properties>
       </component>
-      <component id="34439" class="javax.swing.JLabel">
+      <component id="34439" class="javax.swing.JLabel" binding="lbFormaRetiro">
         <constraints>
           <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Artifakt Element Black" size="20"/>
-          <text value="Domicilio"/>
+          <text value=""/>
         </properties>
       </component>
       <component id="af627" class="javax.swing.JLabel">
@@ -144,6 +136,14 @@
         <properties>
           <font name="Artifakt Element" size="20"/>
           <text value="Entrega"/>
+        </properties>
+      </component>
+      <component id="53ed8" class="javax.swing.JLabel" binding="lbCantidad">
+        <constraints>
+          <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
         </properties>
       </component>
     </children>

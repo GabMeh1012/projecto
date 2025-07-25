@@ -99,7 +99,7 @@ public class Main {
             cliente.addHacerPedidoButtonListener(e -> {
 
                 frame.setVisible(false);    //Se oculta la ventana de Cliente
-                new Pedido(frame);
+                new Pedido(frame, miPedido);
 
                 frame.setTitle("Pedido");
                 frame.pack();
@@ -124,7 +124,7 @@ public class Main {
 
             //Mensaje de que se clickeo el boton
             cliente.addVerPedidoButtonListener(e -> {
-                frame.setContentPane(miPedido); //
+                frame.setContentPane(miPedido.getRootPanel()); //
                 frame.setTitle("Mi Pedido");
                 frame.pack();
                 frame.setLocationRelativeTo(null);

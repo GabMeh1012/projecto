@@ -10,9 +10,9 @@ public class MiPedido extends JPanel {
 
     private JPanel PMiPedido;
     private JPanel TPedido;
-
-
-
+    private JLabel lbCantidad;
+    private JLabel lbFecha;
+    private JLabel lbFormaRetiro;
 
 
     public JPanel getRootPanel() {
@@ -25,6 +25,12 @@ public class MiPedido extends JPanel {
         return fondo;
     }
 
+    // Método para recibir datos desde Saril
+    public void actualizarPedido(String cantidad, String fecha, String formaRetiro) {
+        lbCantidad.setText("Cantidad: " + cantidad);
+        lbFecha.setText("Fecha: " + fecha);
+        lbFormaRetiro.setText("Forma de retiro: " + formaRetiro);
+    }
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
     class FondoPedido extends JPanel {

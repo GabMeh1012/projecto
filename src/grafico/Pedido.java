@@ -13,8 +13,9 @@ public class Pedido extends JFrame {
     private JPanel PPEDIDO;
 
     private JFrame ventanaAnterior;
+    private MiPedido miPedido; // Referencia compartida
 
-    public Pedido(JFrame ventanaAnterior) {
+    public Pedido(JFrame ventanaAnterior,MiPedido miPedido) {
 
         PPEDIDO.setBackground(null);    // Elimina fondo transparente
         PPEDIDO.setOpaque(false);       // No se pinta a sí mismo
@@ -36,7 +37,7 @@ public class Pedido extends JFrame {
         //BOTON PARA COMPRAR SARIL
         BSARIL.addActionListener(e -> {
             dispose(); // Cierra esta ventana
-            Saril ventanaSaril = new Saril(this);// Abre Saril
+            Saril ventanaSaril = new Saril(this, miPedido);// Abre Saril
             ventanaSaril.setContentPane(ventanaSaril.getRootPanel());
             ventanaSaril.pack();
             ventanaSaril.setLocationRelativeTo(null);
