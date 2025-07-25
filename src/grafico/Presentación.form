@@ -35,7 +35,7 @@
         </constraints>
         <properties>
           <font name="Baskerville Old Face" size="28"/>
-          <text value="Gabriela Fuentes                                       8-1042-245"/>
+          <text value="Gabriela Fuentes                                    8-1042-245"/>
         </properties>
       </component>
       <component id="3238b" class="javax.swing.JLabel">
@@ -44,7 +44,7 @@
         </constraints>
         <properties>
           <font name="Baskerville Old Face" size="28"/>
-          <text value="Rudymar Betancourt"/>
+          <text value="Rudymar Betancourt                               20-70-8383"/>
         </properties>
       </component>
       <component id="af9c6" class="javax.swing.JLabel">
@@ -53,7 +53,7 @@
         </constraints>
         <properties>
           <font name="Baskerville Old Face" size="28"/>
-          <text value="Evelin Pineda"/>
+          <text value="Evelin Pineda                                             8-1031-1126"/>
         </properties>
       </component>
       <component id="6e787" class="javax.swing.JLabel">
@@ -133,7 +133,7 @@
         </constraints>
         <properties>
           <font name="Baskerville Old Face" size="28"/>
-          <text value="Laura Orellana                                            20-16-7977"/>
+          <text value="Laura Orellana                                        20-16-7977"/>
         </properties>
       </component>
       <vspacer id="efe14">
