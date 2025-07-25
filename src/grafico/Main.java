@@ -72,8 +72,16 @@ public class Main {
             });
 
             cliente.addHacerPedidoButtonListener(e -> {
+
                 frame.setVisible(false);
                 new Pedido(frame);
+
+                frame.setTitle("Pedido");
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.revalidate();
+                frame.repaint();
+
             });
 
             cliente.addVerPedidoButtonListener(e ->

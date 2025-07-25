@@ -15,34 +15,40 @@ public class Pedido extends JFrame {
     private JFrame ventanaAnterior;
 
     public Pedido(JFrame ventanaAnterior) {
+
+        PPEDIDO.setBackground(null);
+        PPEDIDO.setOpaque(false);
+        PPEDIDO.setBorder(null);
+
         this.ventanaAnterior = ventanaAnterior;
 
-        setContentPane(PPEDIDO); // ← PPEDIDO debe ser tu panel raíz
+        setContentPane(getRootPanel()); // Usa el panel con fondo
         setTitle("Seleccione un Producto");
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Acción del botón BVolver
         BVolver.addActionListener(e -> {
-            ventanaAnterior.setVisible(true); // vuelve a mostrar Cliente
-            dispose(); // cierra Pedido
+            ventanaAnterior.setVisible(true);
+            dispose();
         });
 
         setVisible(true);
     }
 
-
-
     public JPanel getRootPanel() {
-        FondoPortada fondo = new FondoPortada();
+        FondoPedido fondo = new FondoPedido();
         fondo.setLayout(new BorderLayout());
         fondo.add(PPEDIDO, BorderLayout.CENTER);
+        PPEDIDO.setOpaque(false); // para que se vea el fondo
+        PPEDIDO.setPreferredSize(new Dimension(800, 600));
+
+
         return fondo;
     }
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
-    class FondoPortada extends JPanel {
+    class FondoPedido extends JPanel {
         private Image imagen;
 
 
