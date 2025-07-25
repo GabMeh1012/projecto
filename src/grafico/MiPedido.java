@@ -2,7 +2,6 @@ package grafico;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class MiPedido extends JPanel {
@@ -11,7 +10,8 @@ public class MiPedido extends JPanel {
     private JLabel lbCantidad;
     private JLabel lbFecha;
     private JLabel lbFormaRetiro;
-    private JButton volverButton;
+    private JButton BVOLVER;
+    private JButton BFinalizar;
 
     private JFrame framePrincipal;
     private Cliente pantallaCliente;
@@ -21,7 +21,9 @@ public class MiPedido extends JPanel {
         this.framePrincipal = framePrincipal;
         this.pantallaCliente = pantallaCliente;
 
-        volverButton.addActionListener(e -> volverACliente()); // <- este evento es clave
+        BVOLVER.addActionListener(e -> volverACliente()); // <- este evento es clave
+
+        BFinalizar.addActionListener(e -> {volverACliente();});
     }
     // Método que devuelve el panel con fondo
     public JPanel getRootPanel() {

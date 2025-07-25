@@ -40,7 +40,7 @@ public class Main {
             frame.setVisible(true);
 
 
-            //Cambia la pantalla Principal a Portada
+            //Cambia la pantalla Presentacion a Portada
             presentacion.addInicioButtonListener(e -> {
                 frame.setContentPane(portada.getRootPanel());
                 frame.setTitle("Portada");
