@@ -8,7 +8,6 @@ import java.net.URL;
 public class MiPedido extends JPanel {
 
     private JPanel PMiPedido;
-    private JPanel TPedido;
     private JLabel lbCantidad;
     private JLabel lbFecha;
     private JLabel lbFormaRetiro;
