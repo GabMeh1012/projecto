@@ -51,6 +51,7 @@ public class Inicio {
     public JPanel getRootPanel() {
         FondoInicio fondo = new FondoInicio();  //Dibuja la imagen de fondo
         fondo.setLayout(new BorderLayout());
+
         // Asegura que el panel de fondo tenga también el tamaño correcto
         fondo.setPreferredSize(new Dimension(1280, 720));
 

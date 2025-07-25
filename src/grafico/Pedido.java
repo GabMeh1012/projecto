@@ -16,9 +16,9 @@ public class Pedido extends JFrame {
 
     public Pedido(JFrame ventanaAnterior) {
 
-        PPEDIDO.setBackground(null);
-        PPEDIDO.setOpaque(false);
-        PPEDIDO.setBorder(null);
+        PPEDIDO.setBackground(null);    // Elimina fondo transparente
+        PPEDIDO.setOpaque(false);       // No se pinta a sí mismo
+        PPEDIDO.setBorder(null);        // Quita borde
 
         this.ventanaAnterior = ventanaAnterior;
 
@@ -56,37 +56,37 @@ public class Pedido extends JFrame {
         setVisible(true);
     }
 
+    // Obtener el panel visual completo
     public JPanel getRootPanel() {
-        FondoPedido fondo = new FondoPedido();
+        FondoPedido fondo = new FondoPedido();  //Dibuja la imagen de fondo
         fondo.setLayout(new BorderLayout());
         fondo.add(PPEDIDO, BorderLayout.CENTER);
-        PPEDIDO.setOpaque(false); // para que se vea el fondo
-        PPEDIDO.setPreferredSize(new Dimension(800, 600));
+        PPEDIDO.setOpaque(false); // No se pinte a sí mismo
 
+        // Asegura que el panel de fondo tenga también el tamaño correcto
+        PPEDIDO.setPreferredSize(new Dimension(800, 600));
 
         return fondo;
     }
 
-    //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
+    // Clase interna que permite pintar una imagen de fondo
     class FondoPedido extends JPanel {
         private Image imagen;
-
 
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
 
             if (imagen == null) {
-                URL url = getClass().getResource("/grafico/Picture/Pedido.png");
+                URL url = getClass().getResource("/grafico/Picture/Pedido.png");    // Aquí se carga la imagen
 
                 if (url == null) {
-                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                    System.out.println("Imagen no encontrada");
                 } else {
                     imagen = new ImageIcon(url).getImage();
-                    System.out.println("✅ Image loaded successfully.");
+                    System.out.println("Imagen encontrada");
                 }
             }
-
             if (imagen != null) {
                 g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             }
