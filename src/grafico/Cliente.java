@@ -23,6 +23,7 @@ public class Cliente {
         PCLIENTE.setBackground(null);
         PCLIENTE.setOpaque(false);
         PCLIENTE.setBorder(null);
+        PCLIENTE.setSize(new Dimension(1000, 700));
 
 
         setHacerPedidoButtonIcon();

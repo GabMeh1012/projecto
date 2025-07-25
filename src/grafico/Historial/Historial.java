@@ -28,6 +28,7 @@ public class Historial {
             frame.setVisible(true);
         });
 
+        PHISTORIAL.setPreferredSize(new Dimension(1000, 700));
 
 
     }

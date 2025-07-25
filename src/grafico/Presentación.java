@@ -15,6 +15,7 @@ public class Presentación {
         panelPresentacion.setBackground(null); // sin color
         panelPresentacion.setBorder(null);     // sin borde
         panelPresentacion.setOpaque(true);     // dejarlo visible
+        panelPresentacion.setSize(new Dimension(1000, 700));
 
         // Asegurar tamaño de pantalla
         //panelPresentacion.setPreferredSize(new Dimension(1920, 1080));

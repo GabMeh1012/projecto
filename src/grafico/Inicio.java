@@ -17,6 +17,7 @@ public class Inicio {
         PINICIO.setBackground(null);
         PINICIO.setOpaque(false);
         PINICIO.setBorder(null);
+        PINICIO.setSize(new Dimension(1000, 700));
 
 
         if(bInicio != null){
@@ -29,14 +30,14 @@ public class Inicio {
         // Eliminar fondo y aplicar borde redondeado al campo de correo
         if (txtCorreo != null) {
             txtCorreo.setOpaque(false);
-            txtCorreo.setBackground(new Color(0, 0, 0, 0));
+            //txtCorreo.setBackground(new Color(0, 0, 0, 0));
             txtCorreo.setBorder(new RoundedBorder(25, new Color(5, 77, 8), 5)); // Borde verde oscuro
         }
 
         // Eliminar fondo y aplicar borde redondeado al campo de contraseña
         if (passContra != null) {
             passContra.setOpaque(false);
-            passContra.setBackground(new Color(0, 0, 0, 0));
+            //passContra.setBackground(new Color(0, 0, 0, 0));
             passContra.setBorder(new RoundedBorder(25, new Color(5, 77, 8), 5));
         }
 
