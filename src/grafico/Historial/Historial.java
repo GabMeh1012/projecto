@@ -28,8 +28,7 @@ public class Historial {
             frame.setVisible(true);
         });
 
-        PHISTORIAL.setPreferredSize(new Dimension(1000, 700));
-
+        PHISTORIAL.setPreferredSize(new Dimension(1000, 750));
 
     }
 
@@ -39,8 +38,6 @@ public class Historial {
         fondo.add(PHISTORIAL, BorderLayout.CENTER);
         return fondo;
     }
-
-
 
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
