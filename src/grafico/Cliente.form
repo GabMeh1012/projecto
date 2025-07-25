@@ -12,13 +12,13 @@
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="2" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="0" height="0"/>
-            <preferred-size width="612" height="100"/>
-            <maximum-size width="400" height="100"/>
+            <preferred-size width="412" height="100"/>
+            <maximum-size width="400" height="500"/>
           </grid>
         </constraints>
         <properties>
           <background color="-13947600"/>
-          <font name="Baskerville Old Face" size="24" style="1"/>
+          <font name="Baskerville Old Face" size="22" style="1"/>
           <foreground color="-16777216"/>
           <text value="Hacer Pedido"/>
         </properties>
@@ -32,7 +32,7 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Baskerville Old Face" size="24" style="1"/>
+          <font name="Baskerville Old Face" size="22" style="1"/>
           <foreground color="-16777216"/>
           <text value="Ver Mi Pedido"/>
         </properties>
@@ -46,19 +46,9 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Baskerville Old Face" size="24" style="1"/>
+          <font name="Baskerville Old Face" size="22" style="1"/>
           <foreground color="-16777216"/>
           <text value="Historial de Pedidos"/>
-        </properties>
-      </component>
-      <component id="67b72" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <font name="Baskerville Old Face" size="48" style="1"/>
-          <foreground color="-16777216"/>
-          <text value="MENÚ CLIENTE"/>
         </properties>
       </component>
       <vspacer id="63f8e">
@@ -66,6 +56,18 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
         </constraints>
       </vspacer>
+      <component id="67b72" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+            <maximum-size width="400" height="200"/>
+          </grid>
+        </constraints>
+        <properties>
+          <font name="Baskerville Old Face" size="36" style="1"/>
+          <foreground color="-16777216"/>
+          <text value="MENÚ CLIENTE"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

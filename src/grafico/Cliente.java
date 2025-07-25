@@ -24,6 +24,7 @@ public class Cliente {
         PCLIENTE.setOpaque(false);
         PCLIENTE.setBorder(null);
 
+
         setHacerPedidoButtonIcon();
         setVerPedidoButtonIcon();
         setHPedidoButtonIcon();
