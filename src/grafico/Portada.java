@@ -50,7 +50,7 @@ public class Portada {
     }
 
     // Clase interna que permite pintar una imagen de fondo
-    class FondoPortada extends JPanel {
+    static class FondoPortada extends JPanel {
         private Image imagen;
 
         @Override

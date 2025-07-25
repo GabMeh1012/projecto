@@ -74,10 +74,10 @@ public class Saril extends JFrame{
                 URL url = getClass().getResource("/grafico/Picture/Pedido.png");
 
                 if (url == null) {
-                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                    System.out.println("Imagen no encontrada");
                 } else {
                     imagen = new ImageIcon(url).getImage();
-                    System.out.println("✅ Image loaded successfully.");
+                    System.out.println("Imagen encontrada");
                 }
             }
 

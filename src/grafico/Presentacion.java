@@ -1,18 +1,17 @@
 package grafico;
 
 import javax.swing.*;
-import javax.swing.border.AbstractBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Presentación {
+public class Presentacion {
 
 
     private JButton inicioButton;
     private JPanel panelPresentacion;
 
     // Constructor
-    public Presentación() {
+    public Presentacion() {
 
         // Fondo y Estilo de JPanel
         panelPresentacion.setBackground(null); // Sin color de fondo

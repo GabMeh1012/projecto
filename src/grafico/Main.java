@@ -9,7 +9,7 @@ public class Main {
 
     //Declaración de los componentes principales -Instancias de las clases
     private static JFrame frame;
-    private static Presentación presentacion;
+    private static Presentacion presentacion;
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
@@ -25,7 +25,7 @@ public class Main {
             frame.setResizable(true); // Permite ajustar el tamaño de la ventana
 
 
-            presentacion = new Presentación();
+            presentacion = new Presentacion();
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();

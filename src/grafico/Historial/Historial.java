@@ -44,9 +44,8 @@ public class Historial {
         return fondo;
     }
 
-
     // Clase interna que permite pintar una imagen de fondo
-    class FondoHistorial extends JPanel {
+    static class FondoHistorial extends JPanel {
         private Image imagen;
 
 
@@ -69,7 +68,5 @@ public class Historial {
             }
         }
     }
-
-
 
 }
