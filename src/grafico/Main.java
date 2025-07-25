@@ -30,7 +30,7 @@ public class Main {
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
-            miPedido = new MiPedido();
+            miPedido = new MiPedido(frame, cliente);
 
 
             //Muestra la Presentación
