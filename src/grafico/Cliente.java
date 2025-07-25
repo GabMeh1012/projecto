@@ -130,6 +130,13 @@ public class Cliente {
         }
     }
 
+    public void addHPedidoButtonListener(java.awt.event.ActionListener listener) {
+        if (hPedidoB != null) {
+            hPedidoB.addActionListener(listener);
+        }
+    }
+
+
     public void setHacerPedidoB(java.awt.event.ActionListener listener) {
         if(hacerPedidoB != null) {
             hacerPedidoB.addActionListener(listener);
