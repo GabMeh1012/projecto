@@ -1,3 +1,4 @@
+
 package grafico;
 
 import javax.swing.*;
@@ -8,69 +9,59 @@ public class Main {
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
-    private static Pedido pedido;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             frame = new JFrame("Application");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(true); // permitir ajuste manual de tamaño
 
-            // Instanciar todas las pantallas
             presentacion = new Presentación();
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
 
-            // Mostrar primero la pantalla de Presentación
             frame.setContentPane(presentacion.getRootPanel());
-            frame.setSize(1920, 1080); // Tamaño compatible con imagen de portada
-            frame.setLocationRelativeTo(null); // Centrar la ventana
+            frame.pack(); // tomar tamaño sugerido por layout
+            frame.setLocationRelativeTo(null);
             frame.setVisible(true);
 
-            // Acción: Presentación → Portada
             presentacion.addInicioButtonListener(e -> {
                 frame.setContentPane(portada.getRootPanel());
                 frame.setTitle("Portada");
-                frame.revalidate(); // Asegura redibujado correcto
-                frame.repaint();
-            });
-
-            // Acción: Portada → Inicio
-            portada.addStartButtonListener(e -> {
-                frame.setContentPane(inicio.getRootPanel());
-                frame.setSize(1920, 1080); // Mantener tamaño pantalla completa
+                frame.pack();
                 frame.setLocationRelativeTo(null);
-                frame.setTitle("Inicio");
                 frame.revalidate();
                 frame.repaint();
             });
 
-            // Acción: Inicio → Cliente (con validación)
+            portada.addStartButtonListener(e -> {
+                frame.setContentPane(inicio.getRootPanel());
+                frame.setTitle("Inicio");
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.revalidate();
+                frame.repaint();
+            });
+
             inicio.addInicioButtonListener(e -> {
                 try {
                     String correo = inicio.getCorreo();
                     String contrasena = inicio.getContrasena();
 
-                    if (correo == null || correo.isEmpty()) {
+                    if (correo == null || correo.isEmpty())
                         throw new IllegalArgumentException("El campo de correo no puede estar vacío.");
-                    }
-
-                    if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+                    if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$"))
                         throw new IllegalArgumentException("El formato del correo no es válido.");
-                    }
-
-                    if (contrasena == null || contrasena.isEmpty()) {
+                    if (contrasena == null || contrasena.isEmpty())
                         throw new IllegalArgumentException("La contraseña no puede estar vacía.");
-                    }
-
-                    if (contrasena.length() < 6) {
+                    if (contrasena.length() < 6)
                         throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
-                    }
 
-                    frame.setContentPane(cliente.getRootPanel()); // en vez de getRootPane()
+                    frame.setContentPane(cliente.getRootPanel());
+                    frame.setTitle("Cliente");
                     frame.pack();
                     frame.setLocationRelativeTo(null);
-                    frame.setTitle("Cliente");
 
                 } catch (IllegalArgumentException ex) {
                     JOptionPane.showMessageDialog(frame, ex.getMessage(), "Error de Validación", JOptionPane.ERROR_MESSAGE);
@@ -80,22 +71,21 @@ public class Main {
                 }
             });
 
-            // Acción: Cliente - Hacer Pedido → Pedido (con validación)
-
             cliente.addHacerPedidoButtonListener(e -> {
-                frame.setVisible(false);     // Oculta la ventana de Cliente
-                new Pedido(frame);           // Abre Pedido pasando la ventana actual
+
+                frame.setVisible(false);
+                new Pedido(frame);
+
+                frame.setTitle("Pedido");
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.revalidate();
+                frame.repaint();
+
             });
 
             cliente.addVerPedidoButtonListener(e ->
-                    JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!")
-            );
+                    JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!"));
         });
     }
-
-
-
-
-
-
 }

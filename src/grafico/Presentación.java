@@ -17,7 +17,7 @@ public class Presentación {
         panelPresentacion.setOpaque(true);     // dejarlo visible
 
         // Asegurar tamaño de pantalla
-        panelPresentacion.setPreferredSize(new Dimension(1920, 1080));
+        //panelPresentacion.setPreferredSize(new Dimension(1920, 1080));
 
         // Aplicar el borde redondeado con color azul y grosor 3
         if (inicioButton != null) {
