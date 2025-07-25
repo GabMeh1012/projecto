@@ -1,5 +1,7 @@
 package grafico;
 
+import com.toedter.calendar.JCalendar;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,10 @@ public class Saril extends JFrame{
     private JTextField CampoCantidad;
     private JTextField CampoRetiro;
     private JPanel PSARIL;
+    private JCalendar JCalendar1;
+    private JCalendar JCalendar2;
+    private JCalendar JCalendar3;
+    private com.toedter.calendar.JCalendar calendario;
 
 
     public Saril() {
@@ -40,6 +46,11 @@ public class Saril extends JFrame{
                 dispose(); // Solo cierra esta ventana
             }
         });
+    }
+
+    private void createUIComponents() {
+        // Aquí creas manualmente el JCalendar
+        calendario = new com.toedter.calendar.JCalendar();
     }
 
     public JPanel getRootPanel() {
