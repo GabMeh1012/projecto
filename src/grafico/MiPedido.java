@@ -13,8 +13,10 @@ public class MiPedido extends JPanel {
 
 
 
+
+
     public JPanel getRootPanel() {
-        Saril.FondoSaril fondo = new Saril.FondoSaril();
+        FondoPedido fondo = new FondoPedido();
         fondo.setLayout(new BorderLayout());
         fondo.add(PMiPedido, BorderLayout.CENTER);
         PMiPedido.setOpaque(false); // para que se vea el fondo
@@ -22,6 +24,7 @@ public class MiPedido extends JPanel {
 
         return fondo;
     }
+
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
     class FondoPedido extends JPanel {
@@ -36,13 +39,12 @@ public class MiPedido extends JPanel {
                 URL url = getClass().getResource("/grafico/Picture/Pedido.png");
 
                 if (url == null) {
-                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                    System.out.println("Imagen no encontrada");
                 } else {
                     imagen = new ImageIcon(url).getImage();
-                    System.out.println("✅ Image loaded successfully.");
+                    System.out.println("Imagen encontrada.");
                 }
             }
-
             if (imagen != null) {
                 g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
             }

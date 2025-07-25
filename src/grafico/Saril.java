@@ -33,15 +33,12 @@ public class Saril extends JFrame{
             dispose(); // Close current window (Saril)
         });
 
-
-
         // ComboBox lógica
         FormaRetiro.addActionListener(e -> {
             String seleccion = (String) FormaRetiro.getSelectedItem();
 
         });
         setVisible(true); // Make Saril window visible when created
-
 
     }
 

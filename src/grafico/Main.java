@@ -13,6 +13,7 @@ public class Main {
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
+    private static MiPedido miPedido;
 
     public static void main(String[] args) {
 
@@ -29,6 +30,7 @@ public class Main {
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
+            miPedido = new MiPedido();
 
 
             //Muestra la Presentación
@@ -121,8 +123,13 @@ public class Main {
 
 
             //Mensaje de que se clickeo el boton
-            cliente.addVerPedidoButtonListener(e ->
-                    JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!"));
+            cliente.addVerPedidoButtonListener(e -> {
+                frame.setContentPane(miPedido); //
+                frame.setTitle("Mi Pedido");
+                frame.pack();
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+            });
         });
 
     }
