@@ -2,50 +2,37 @@ package grafico;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.net.URL; // Important for loading resources
-import java.util.Objects;
+
 
 //PARA QUE LOS BORDERS DE LOS BUTTONS QUEDEN ROUND
 import javax.swing.border.AbstractBorder;
-import java.awt.*;
+
 
 public class Cliente {
     private JPanel PCLIENTE;
     private JButton hacerPedidoB;
     private JButton verPedidoB;
     private JButton hPedidoB;
-    private static MiPedido miPedido;
 
     // Constructor
     public Cliente() {
 
-        PCLIENTE.setBackground(null);
-        PCLIENTE.setOpaque(false);
-        PCLIENTE.setBorder(null);
-        PCLIENTE.setSize(new Dimension(1000, 700));
+        //Configuracion del JPanel
+        PCLIENTE.setBackground(null);   // Elimina fondo transparente
+        PCLIENTE.setOpaque(false);      // No se pinta a sí mismo
+        PCLIENTE.setBorder(null);       // Quita borde
 
+        // Tamaño para el panel
+        PCLIENTE.setPreferredSize(new Dimension(1000, 700));
 
-        setHacerPedidoButtonIcon();
-        setVerPedidoButtonIcon();
-        setHPedidoButtonIcon();
-
-        verPedidoB.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                JFrame frame = (JFrame)  SwingUtilities.getWindowAncestor(verPedidoB);
-                frame.dispose();
-            }
-        });
-
+        //Se llaman los metodos para cargar la imagen a los botones
+        setButtonIcon(hacerPedidoB, "/grafico/Picture/hacerPedido.png", 50, 50);
+        setButtonIcon(verPedidoB, "/grafico/Picture/verPedido.png", 50, 50);
+        setButtonIcon(hPedidoB, "/grafico/Picture/hist2.2.png", 50, 50);
     }
 
-    private void setDefaultCloseOperation(int exitOnClose) {
-    }
-
-
+    //Metodo que devuelve el JPanel completo con imagen de fondo
     public JPanel getRootPanel() {
         FondoCliente fondo = new FondoCliente();
         fondo.setLayout(new BorderLayout());
@@ -54,95 +41,45 @@ public class Cliente {
         return fondo;
     }
 
-    // Renamed for clarity to reflect its purpose
-    private void setHacerPedidoButtonIcon() {
-        ImageIcon icon = null;
+    // Metodos reutilizable para Iconos y Estilo de Bordes
+    private void setButtonIcon(JButton button, String imagePath, int width, int height) {
+        if (button == null) {
+            System.err.println("Botón es null. No se puede aplicar icono.");
+            return;
+        }
+
         try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/hacerPedido.png");
+            URL imageUrl = getClass().getResource(imagePath);
 
             if (imageUrl != null) {
-                icon = new ImageIcon(imageUrl);
-                Image image = icon.getImage();
-
-                int desiredWidth = 1;
-                int desiredHeight = 1;
-
-                Image scaleImg = image.getScaledInstance(desiredWidth, desiredHeight, Image.SCALE_SMOOTH);
-
-                ImageIcon scaleIcon = new ImageIcon(scaleImg);
-
-                if (hacerPedidoB != null) {
-                    hacerPedidoB.setIcon(icon);
-
-                    hacerPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
-                    hacerPedidoB.setContentAreaFilled(false);
-                    hacerPedidoB.setFocusPainted(false);
-                } else {
-
-                    System.err.println("hacerPedidoB is null. Icon cannot be set.");
-                }
+                ImageIcon originalIcon = new ImageIcon(imageUrl);
+                Image image = originalIcon.getImage().getScaledInstance(width, height, Image.SCALE_SMOOTH);
+                button.setIcon(new ImageIcon(image));
             } else {
-
-                System.err.println("Image resource not found: /grafico/Picture/hacerPedido1.png");
+                System.err.println("Imagen no encontrada: " + imagePath);
             }
+
+            button.setBorder(new RoundedBorder(50, new Color(5, 77, 8), 5));
+            button.setContentAreaFilled(false);
+            button.setFocusPainted(false);
+            button.setOpaque(false);
         } catch (Exception e) {
             e.printStackTrace();
-
-            System.err.println("Error loading image for hacerPedidoB.");
+            System.err.println("Error al aplicar imagen al botón: " + imagePath);
         }
     }
 
-    private void setVerPedidoButtonIcon() {
-        try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/verPedido.png");
-
-            if (imageUrl != null) {
-                ImageIcon icon = new ImageIcon(imageUrl);
-                Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                verPedidoB.setIcon(new ImageIcon(image));
-
-                verPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
-                verPedidoB.setContentAreaFilled(false);
-                verPedidoB.setFocusPainted(false);
-            } else {
-                System.err.println("Image not found: ver3.2.png");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void setHPedidoButtonIcon() {
-        try {
-            URL imageUrl = getClass().getResource("/grafico/Picture/hist2.2.png");
-
-            if (imageUrl != null) {
-                ImageIcon icon = new ImageIcon(imageUrl);
-                Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-                hPedidoB.setIcon(new ImageIcon(image));
-
-                hPedidoB.setBorder(new RoundedBorder(50, new Color(5,77,8), 5));
-                hPedidoB.setContentAreaFilled(false);
-                hPedidoB.setFocusPainted(false);
-            } else {
-                System.err.println("Image not found: hPedido.png");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    // Optional: If you need to add an ActionListener from outside
+    // Métodos públicos para asignar eventos a los botones
     public void addHacerPedidoButtonListener(java.awt.event.ActionListener listener) {
         if (hacerPedidoB != null) {
             hacerPedidoB.addActionListener(listener);
         }
     }
+
     public void addVerPedidoButtonListener(java.awt.event.ActionListener listener) {
-       if (verPedidoB != null) {
-           verPedidoB.addActionListener(listener);
-       }
+        if (verPedidoB != null) {
+            verPedidoB.addActionListener(listener);
+        }
     }
 
     public void addHPedidoButtonListener(java.awt.event.ActionListener listener) {
@@ -151,46 +88,7 @@ public class Cliente {
         }
     }
 
-    public void setHacerPedidoB(java.awt.event.ActionListener listener) {
-        if(hacerPedidoB != null) {
-            hacerPedidoB.addActionListener(listener);
-        }
-    }
-
-    class RoundedBorder extends AbstractBorder {
-        private int radius;
-        private Color borderColor;
-        private int borderThickness;
-
-        public RoundedBorder(int radius, Color borderColor, int borderThickness) {
-            this.radius = radius;
-            this.borderColor = borderColor;
-            this.borderThickness = borderThickness;
-        }
-
-        @Override
-        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-            Graphics2D g2 = (Graphics2D) g.create();
-            g2.setColor(borderColor); // 👉 Color personalizado
-            g2.setStroke(new BasicStroke(borderThickness)); // 👉 Grosor personalizado
-            g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
-            g2.dispose();
-        }
-
-        @Override
-        public Insets getBorderInsets(Component c) {
-            return new Insets(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
-        }
-
-        @Override
-        public Insets getBorderInsets(Component c, Insets insets) {
-            insets.set(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
-            return insets;
-        }
-    }
-
-
-    //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
+    // Clase interna que permite pintar una imagen de fondo
     class FondoCliente extends JPanel {
         private Image imagen;
 
@@ -200,13 +98,13 @@ public class Cliente {
             super.paintComponent(g);
 
             if (imagen == null) {
-                URL url = getClass().getResource("/grafico/Picture/Cliente.png");
+                URL url = getClass().getResource("/grafico/Picture/Cliente.png");   // Aquí se carga la imagen
 
                 if (url == null) {
-                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                    System.out.println("Imagen no encontrada");
                 } else {
                     imagen = new ImageIcon(url).getImage();
-                    System.out.println("✅ Image loaded successfully.");
+                    System.out.println("Imagen encontrada");
                 }
             }
 
@@ -217,4 +115,45 @@ public class Cliente {
     }
 
 
+    // Clase Interna RoundedBorder
+    //Esta clase permite definir un borde redondeado personalizado para botones.
+    private static class RoundedBorder extends AbstractBorder {
+
+        // Atributos
+        private final int radius;   //Curvatura
+        private final Color borderColor;    // Color del borde
+        private final int borderThickness;  //Grosor del borde
+
+        //Constructor
+        public RoundedBorder(int radius, Color borderColor, int borderThickness) {
+            this.radius = radius;
+            this.borderColor = borderColor;
+            this.borderThickness = borderThickness;
+        }
+
+        //Metodo
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            //Crear una copia del contesto gráfico Graphics2d para no alterar el original
+            Graphics2D g2 = (Graphics2D) g.create();
+
+            g2.setColor(borderColor);   //Color del borde
+            g2.setStroke(new BasicStroke(borderThickness)); //Grosor
+            g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);  //Dibuja el borde redondo
+            g2.dispose();
+        }
+
+        //Metodo que define cuánto espacio ocupa el borde alrededor del campo
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
+        }
+
+        //Garantiza que el borde tenga el mismo espacio en los 4 lados (arriba, abajo, izquierda y derecha).
+        @Override
+        public Insets getBorderInsets(Component c, Insets insets) {
+            insets.set(radius + borderThickness, radius + borderThickness, radius + borderThickness, radius + borderThickness);
+            return insets;
+        }
+    }
 }

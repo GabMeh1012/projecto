@@ -6,35 +6,39 @@ import grafico.Historial.Historial;
 import javax.swing.*;
 
 public class Main {
+
+    //Declaración de los componentes principales -Instancias de las clases
     private static JFrame frame;
-    private static Presentación presentacion;
+    private static Presentacion presentacion;
     private static Portada portada;
     private static Inicio inicio;
     private static Cliente cliente;
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            frame = new JFrame("Application");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setResizable(true); // permitir ajuste manual de tamaño
 
-            presentacion = new Presentación();
+        // Utilizado para que el código de la interfaz gráfica se ejecute en el hilo de eventos de Swing
+        SwingUtilities.invokeLater(() -> {
+
+            //Creación de la ventana principal
+            frame = new JFrame("Granja");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(true); // Permite ajustar el tamaño de la ventana
+
+
+            presentacion = new Presentacion();
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
 
-            Cliente cliente = new Cliente();
-            frame.setContentPane(cliente.getRootPanel());
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null); // Centrar ventana
-            frame.setVisible(true);
 
-            frame.setContentPane(presentacion.getRootPanel());
+            //Muestra la Presentación
+            frame.setContentPane(presentacion.getRootPanel());  //Cambia el contenido a Presentacion
             frame.pack(); // tomar tamaño sugerido por layout
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
 
+
+            //Cambia la pantalla Principal a Portada
             presentacion.addInicioButtonListener(e -> {
                 frame.setContentPane(portada.getRootPanel());
                 frame.setTitle("Portada");
@@ -44,6 +48,9 @@ public class Main {
                 frame.repaint();
             });
 
+
+
+            // Cambia la pantalla Portada a Inicio de Sesión
             portada.addStartButtonListener(e -> {
                 frame.setContentPane(inicio.getRootPanel());
                 frame.setTitle("Inicio");
@@ -53,6 +60,9 @@ public class Main {
                 frame.repaint();
             });
 
+
+
+            //Validacion de los campos Correo y Contraseña
             inicio.addInicioButtonListener(e -> {
                 try {
                     String correo = inicio.getCorreo();
@@ -67,6 +77,8 @@ public class Main {
                     if (contrasena.length() < 6)
                         throw new IllegalArgumentException("La contraseña debe tener al menos 6 caracteres.");
 
+
+                    // Cambio de pantalla Inicio a Cliente
                     frame.setContentPane(cliente.getRootPanel());
                     frame.setTitle("Cliente");
                     frame.pack();
@@ -80,9 +92,11 @@ public class Main {
                 }
             });
 
+
+            // Muestra ventana de Pedidos
             cliente.addHacerPedidoButtonListener(e -> {
 
-                frame.setVisible(false);
+                frame.setVisible(false);    //Se oculta la ventana de Cliente
                 new Pedido(frame);
 
                 frame.setTitle("Pedido");
@@ -91,9 +105,11 @@ public class Main {
                 frame.revalidate();
                 frame.repaint();
 
+                //JFrame independiente por eso no cambia el contentPane, se abre la ventana Pedido
+
             });
 
-
+            // Muestra Historial de Pedidos
             cliente.addHPedidoButtonListener(e -> {
                 Historial historial = new Historial(frame, cliente);
                 frame.setContentPane(historial.getRootPanel());
@@ -104,13 +120,10 @@ public class Main {
             });
 
 
-
+            //Mensaje de que se clickeo el boton
             cliente.addVerPedidoButtonListener(e ->
                     JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!"));
         });
-
-
-
 
     }
 }

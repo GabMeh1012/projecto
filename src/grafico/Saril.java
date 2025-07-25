@@ -1,23 +1,21 @@
 package grafico;
-import com.toedter.calendar.JDateChooser;
+
+import com.toedter.calendar.JCalendar;
 
 import javax.swing.*;
 import java.awt.*;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class Saril extends JFrame {
+import java.net.URL;
+
+public class Saril extends JFrame{
     private JButton volverButton;
     private JComboBox FormaRetiro;
     private JTextField CampoCantidad;
+    private JTextField CampoRetiro;
     private JPanel PSARIL;
-    private JPanel JCalendar;
-    private JTextField CampoFecha;
-    private JButton EnviarPedido;
-    private JDateChooser calendario;
-    private Date FechaRetiro;
-
+    private JCalendar JCalendar1;
+    private JCalendar JCalendar2;
+    private JCalendar JCalendar3;
 
     private JFrame ventanaAnterior;
 
@@ -36,6 +34,7 @@ public class Saril extends JFrame {
         });
 
 
+
         // ComboBox lógica
         FormaRetiro.addActionListener(e -> {
             String seleccion = (String) FormaRetiro.getSelectedItem();
@@ -43,42 +42,13 @@ public class Saril extends JFrame {
         });
         setVisible(true); // Make Saril window visible when created
 
-        calendario.getDateEditor().addPropertyChangeListener("date", evt -> {
-            FechaRetiro = calendario.getDate();  // guarda la fecha en la variable global
-            CampoFecha.setText(new SimpleDateFormat("dd/MM/yyyy").format(CampoFecha));
-        });
 
-        EnviarPedido.addActionListener(e -> {
-            MiPedido miPedidoPanel = new MiPedido();
-
-            JFrame frame = new JFrame("Resumen del Pedido");
-            frame.setContentPane(miPedidoPanel.getRootPanel());
-            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            frame.pack();
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-
-            // Oculta la ventana actual si quieres
-            setVisible(false);
-        });
-
-        // Código de prueba: se ejecuta al abrir Saril
-        MiPedido miPedido = new MiPedido();
-        JFrame frame = new JFrame("Mi Pedido");
-        frame.setContentPane(miPedido.getRootPanel());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
     }
 
     private void createUIComponents() {
-        calendario = new JDateChooser(); // se instancia manualmente
-        JPanel JDateChooser = new JPanel(); // si no lo crea automáticamente
-        JCalendar.add(calendario);
+        // Aquí creas manualmente el JCalendar
+        JCalendar calendario = new JCalendar();
     }
-
-
 
     public JPanel getRootPanel() {
         FondoSaril fondo = new FondoSaril();
@@ -92,7 +62,7 @@ public class Saril extends JFrame {
 
 
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
-    static class FondoSaril extends JPanel {
+    class FondoSaril extends JPanel {
         private Image imagen;
 
         @Override
@@ -103,10 +73,10 @@ public class Saril extends JFrame {
                 URL url = getClass().getResource("/grafico/Picture/Pedido.png");
 
                 if (url == null) {
-                    System.out.println("⚠️ Image not found: /grafico/Picture/Portada.png");
+                    System.out.println("Imagen no encontrada");
                 } else {
                     imagen = new ImageIcon(url).getImage();
-                    System.out.println("✅ Image loaded successfully.");
+                    System.out.println("Imagen encontrada");
                 }
             }
 
