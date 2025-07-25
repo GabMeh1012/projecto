@@ -13,6 +13,9 @@ public class Saril extends JFrame{
     private JTextField CampoCantidad;
     private JTextField CampoRetiro;
     private JPanel PSARIL;
+    private JFormattedTextField CampoFecha;
+    private JButton EnviarPedido;
+    private JPanel JCalendar;
     private JCalendar JCalendar1;
     private JCalendar JCalendar2;
     private JCalendar JCalendar3;

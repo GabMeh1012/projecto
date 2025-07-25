@@ -13,16 +13,6 @@ public class MiPedido extends JPanel {
 
 
 
-    public JPanel getRootPanel() {
-        Saril.FondoSaril fondo = new Saril.FondoSaril();
-        fondo.setLayout(new BorderLayout());
-        fondo.add(PMiPedido, BorderLayout.CENTER);
-        PMiPedido.setOpaque(false); // para que se vea el fondo
-        PMiPedido.setPreferredSize(new Dimension(800, 600));
-
-        return fondo;
-    }
-
     //CLASE PARA AJUSTAR EL FONDO DEL JPANEL
     class FondoPedido extends JPanel {
         private Image imagen;
