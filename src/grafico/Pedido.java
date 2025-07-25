@@ -43,6 +43,16 @@ public class Pedido extends JFrame {
             ventanaSaril.setVisible(true);
         });
 
+        // BOTÓN GUANDÚ - Mostrar mensaje de fuera de stock
+        BGUANDU.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Lo sentimos, Guandú está fuera de stock.", "Producto no disponible", JOptionPane.INFORMATION_MESSAGE);
+        });
+
+    // BOTÓN COMBO - Mostrar mensaje de fuera de stock
+        BCOMBO.addActionListener(e -> {
+            JOptionPane.showMessageDialog(this, "Lo sentimos, el Combo está fuera de stock.", "Producto no disponible", JOptionPane.INFORMATION_MESSAGE);
+        });
+
         setVisible(true);
     }
 
