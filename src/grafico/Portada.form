@@ -35,7 +35,7 @@
           </grid>
         </constraints>
         <properties>
-          <font name="Baskerville Old Face" size="72" style="1"/>
+          <font name="Baskerville Old Face" size="36" style="1"/>
           <foreground color="-16777216"/>
           <text value="BIENVENIDOS A LA FINCA DE JUAN Y MARTA"/>
         </properties>
@@ -69,7 +69,7 @@
         </constraints>
         <properties>
           <background color="-16429816"/>
-          <font name="Baskerville Old Face" size="48"/>
+          <font name="Baskerville Old Face" size="28"/>
           <foreground color="-16777216"/>
           <text value="INICIAR"/>
         </properties>
