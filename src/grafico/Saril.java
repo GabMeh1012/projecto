@@ -66,14 +66,46 @@ public class Saril extends JFrame{
                 int mes = Integer.parseInt(partesFecha[1]);
                 int anio = Integer.parseInt(partesFecha[2]);
 
+                /*
                 if (anio < 2025) {
                     throw new IllegalArgumentException("El año debe ser mayor que 2025.");
                 }
                 if (mes <= 6) {
                     throw new IllegalArgumentException("El mes debe ser mayor que 7.");
                 }
-                if (dia <= 24) {
-                    throw new IllegalArgumentException("El día debe ser mayor que 24.");
+                if (dia <= 0 || dia > 31) {
+                    throw new IllegalArgumentException("El día debe estar entre 1 y 31.");
+                }
+
+                 */
+
+                if (anio < 2025) {
+                    throw new IllegalArgumentException("El año debe ser 2025 o mayor.");
+                }
+
+                if (mes < 7 || mes > 12) {
+                    throw new IllegalArgumentException("Solo se permiten pedidos de julio (mes 7) a diciembre (mes 12).");
+                }
+
+                // Validar días según el mes
+                int maxDias;
+                switch (mes) {
+                    case 2: // febrero
+                        maxDias = (anio % 4 == 0 && (anio % 100 != 0 || anio % 400 == 0)) ? 29 : 28;
+                        break;
+                    case 4: case 6: case 9: case 11:
+                        maxDias = 30;
+                        break;
+                    default:
+                        maxDias = 31;
+                }
+
+                if (dia < 1 || dia > maxDias) {
+                    throw new IllegalArgumentException("El día debe estar entre 1 y " + maxDias + " para el mes " + mes + ".");
+                }
+
+                if (mes == 7 && dia < 25) {
+                    throw new IllegalArgumentException("Para el mes de julio, solo se aceptan pedidos a partir del día 25.");
                 }
 
 

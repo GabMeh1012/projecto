@@ -11,7 +11,6 @@ public class MiPedido extends JPanel {
     private JLabel lbFecha;
     private JLabel lbFormaRetiro;
     private JButton BVOLVER;
-    private JButton BFinalizar;
 
     private JFrame framePrincipal;
     private Cliente pantallaCliente;
@@ -22,8 +21,6 @@ public class MiPedido extends JPanel {
         this.pantallaCliente = pantallaCliente;
 
         BVOLVER.addActionListener(e -> volverACliente()); // <- este evento es clave
-
-        BFinalizar.addActionListener(e -> {volverACliente();});
     }
     // Método que devuelve el panel con fondo
     public JPanel getRootPanel() {
