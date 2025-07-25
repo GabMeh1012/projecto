@@ -17,7 +17,6 @@ public class Saril extends JFrame{
     private JCalendar JCalendar1;
     private JCalendar JCalendar2;
     private JCalendar JCalendar3;
-    private com.toedter.calendar.JCalendar calendario;
 
     private JFrame ventanaAnterior;
 
@@ -35,10 +34,12 @@ public class Saril extends JFrame{
             dispose(); // Close current window (Saril)
         });
 
+
+
         // ComboBox lógica
         FormaRetiro.addActionListener(e -> {
             String seleccion = (String) FormaRetiro.getSelectedItem();
-            CampoRetiro.setText(seleccion);
+
         });
         setVisible(true); // Make Saril window visible when created
 
@@ -47,7 +48,7 @@ public class Saril extends JFrame{
 
     private void createUIComponents() {
         // Aquí creas manualmente el JCalendar
-        calendario = new com.toedter.calendar.JCalendar();
+        JCalendar calendario = new JCalendar();
     }
 
     public JPanel getRootPanel() {
