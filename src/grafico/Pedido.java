@@ -23,14 +23,24 @@ public class Pedido extends JFrame {
         this.ventanaAnterior = ventanaAnterior;
 
         setContentPane(getRootPanel()); // Usa el panel con fondo
-        setTitle("Seleccione un Producto");
         setSize(800, 600);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
+        //BOTON PARA VOLVER A LA VENTANA DE ATRAS
         BVolver.addActionListener(e -> {
             ventanaAnterior.setVisible(true);
             dispose();
+        });
+
+        //BOTON PARA COMPRAR SARIL
+        BSARIL.addActionListener(e -> {
+            dispose(); // Cierra esta ventana
+            Saril ventanaSaril = new Saril(this);// Abre Saril
+            ventanaSaril.setContentPane(ventanaSaril.getRootPanel());
+            ventanaSaril.pack();
+            ventanaSaril.setLocationRelativeTo(null);
+            ventanaSaril.setVisible(true);
         });
 
         setVisible(true);

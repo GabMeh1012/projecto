@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="PSARIL" layout-manager="GridLayoutManager" row-count="14" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="688" height="400"/>
+      <xy x="20" y="20" width="719" height="400"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -13,7 +13,10 @@
           <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="volver"/>
+          <background color="-10838"/>
+          <font name="Baskerville Old Face" size="14"/>
+          <foreground color="-16777216"/>
+          <text value="VOLVER"/>
         </properties>
       </component>
       <vspacer id="97a40">
@@ -53,9 +56,8 @@
           <font name="Baskerville Old Face" size="18"/>
           <foreground color="-16777216"/>
           <model>
-            <item value="Retiro"/>
-            <item value="local"/>
-            <item value="Domicilio"/>
+            <item value="Retiro Local"/>
+            <item value="A Domicilio"/>
           </model>
         </properties>
       </component>
@@ -86,7 +88,9 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-10838"/>
           <font name="Baskerville Old Face" size="18"/>
+          <foreground color="-16777216"/>
         </properties>
       </component>
       <vspacer id="65895">
@@ -116,7 +120,9 @@
           </grid>
         </constraints>
         <properties>
+          <background color="-10838"/>
           <font name="Baskerville Old Face" size="18"/>
+          <foreground color="-16777216"/>
         </properties>
       </component>
       <vspacer id="fb022">

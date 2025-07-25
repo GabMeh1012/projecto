@@ -84,6 +84,7 @@ public class Main {
 
             });
 
+
             cliente.addVerPedidoButtonListener(e ->
                     JOptionPane.showMessageDialog(frame, "¡Ver Pedido clickeado desde Cliente!"));
         });
