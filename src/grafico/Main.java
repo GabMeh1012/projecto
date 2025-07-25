@@ -23,6 +23,13 @@ public class Main {
             inicio = new Inicio();
             cliente = new Cliente();
 
+            Cliente cliente = new Cliente();
+            frame.setContentPane(cliente.getRootPanel());
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setLocationRelativeTo(null); // Centrar ventana
+            frame.setVisible(true);
+
             frame.setContentPane(presentacion.getRootPanel());
             frame.pack(); // tomar tamaño sugerido por layout
             frame.setLocationRelativeTo(null);
@@ -85,6 +92,8 @@ public class Main {
                 frame.repaint();
 
             });
+
+
             cliente.addHPedidoButtonListener(e -> {
                 Historial historial = new Historial(frame, cliente);
                 frame.setContentPane(historial.getRootPanel());
@@ -93,6 +102,7 @@ public class Main {
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             });
+
 
 
             cliente.addVerPedidoButtonListener(e ->
