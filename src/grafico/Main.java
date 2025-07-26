@@ -30,7 +30,7 @@ public class Main {
             portada = new Portada();
             inicio = new Inicio();
             cliente = new Cliente();
-            miPedido = new MiPedido();
+            miPedido = new MiPedido(frame, cliente);
 
 
             //Muestra la Presentación
@@ -40,7 +40,7 @@ public class Main {
             frame.setVisible(true);
 
 
-            //Cambia la pantalla Principal a Portada
+            //Cambia la pantalla Presentacion a Portada
             presentacion.addInicioButtonListener(e -> {
                 frame.setContentPane(portada.getRootPanel());
                 frame.setTitle("Portada");
