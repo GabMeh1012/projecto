@@ -66,19 +66,6 @@ public class Saril extends JFrame{
                 int mes = Integer.parseInt(partesFecha[1]);
                 int anio = Integer.parseInt(partesFecha[2]);
 
-                /*
-                if (anio < 2025) {
-                    throw new IllegalArgumentException("El año debe ser mayor que 2025.");
-                }
-                if (mes <= 6) {
-                    throw new IllegalArgumentException("El mes debe ser mayor que 7.");
-                }
-                if (dia <= 0 || dia > 31) {
-                    throw new IllegalArgumentException("El día debe estar entre 1 y 31.");
-                }
-
-                 */
-
                 if (anio < 2025) {
                     throw new IllegalArgumentException("El año debe ser 2025 o mayor.");
                 }

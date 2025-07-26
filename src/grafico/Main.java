@@ -51,7 +51,6 @@ public class Main {
             });
 
 
-
             // Cambia la pantalla Portada a Inicio de Sesión
             portada.addStartButtonListener(e -> {
                 frame.setContentPane(inicio.getRootPanel());
@@ -61,7 +60,6 @@ public class Main {
                 frame.revalidate();
                 frame.repaint();
             });
-
 
 
             //Validacion de los campos Correo y Contraseña
@@ -123,13 +121,12 @@ public class Main {
 
             //Mensaje de que se clickeo el boton
             cliente.addVerPedidoButtonListener(e -> {
-                frame.setContentPane(miPedido.getRootPanel()); //
+                frame.setContentPane(miPedido.getRootPanel());
                 frame.setTitle("Mi Pedido");
                 frame.pack();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             });
         });
-
     }
 }
