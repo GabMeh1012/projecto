@@ -17,7 +17,7 @@ public class Saril extends JFrame{
     private JButton EnviarPedido;
     private JPanel JCalendar;
 
-    private MiPedido miPedido; // ← importante
+    private MiPedido miPedido;
 
     private JFrame ventanaAnterior;
 
@@ -33,8 +33,8 @@ public class Saril extends JFrame{
 
         // Acción del botón Volver
         volverButton.addActionListener(e -> {
-            this.ventanaAnterior.setVisible(true); // Make the previous window visible
-            dispose(); // Close current window (Saril)
+            this.ventanaAnterior.setVisible(true);
+            dispose(); // Se cierra la ventana
         });
 
         EnviarPedido.addActionListener(e -> {
@@ -65,19 +65,6 @@ public class Saril extends JFrame{
                 int dia = Integer.parseInt(partesFecha[0]);
                 int mes = Integer.parseInt(partesFecha[1]);
                 int anio = Integer.parseInt(partesFecha[2]);
-
-                /*
-                if (anio < 2025) {
-                    throw new IllegalArgumentException("El año debe ser mayor que 2025.");
-                }
-                if (mes <= 6) {
-                    throw new IllegalArgumentException("El mes debe ser mayor que 7.");
-                }
-                if (dia <= 0 || dia > 31) {
-                    throw new IllegalArgumentException("El día debe estar entre 1 y 31.");
-                }
-
-                 */
 
                 if (anio < 2025) {
                     throw new IllegalArgumentException("El año debe ser 2025 o mayor.");
