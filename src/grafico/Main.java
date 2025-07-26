@@ -94,7 +94,6 @@ public class Main {
                 }
             });
 
-
             // Muestra ventana de Pedidos
             cliente.addHacerPedidoButtonListener(e -> {
 
