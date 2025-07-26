@@ -11,6 +11,7 @@ public class MiPedido extends JPanel {
     private JLabel lbFecha;
     private JLabel lbFormaRetiro;
     private JButton BVOLVER;
+    private JLabel JTotal;
 
     private JFrame framePrincipal;
     private Cliente pantallaCliente;
@@ -50,6 +51,15 @@ public class MiPedido extends JPanel {
         lbCantidad.setText("Cantidad: " + cantidad);
         lbFecha.setText("Fecha: " + fecha);
         lbFormaRetiro.setText("Forma de retiro: " + formaRetiro);
+
+        try {
+            int cantidadInt = Integer.parseInt(cantidad);
+            double total = cantidadInt * 3.00;
+            JTotal.setText(String.format("B/. %.2f", total));
+        } catch (NumberFormatException e) {
+            JTotal.setText("Total a pagar: B/. --");
+            System.err.println("Error al calcular el total: cantidad no válida.");
+        }
     }
 
     // Clase para dibujar el fondo

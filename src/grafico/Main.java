@@ -118,7 +118,6 @@ public class Main {
                 frame.setVisible(true);
             });
 
-
             //Mensaje de que se clickeo el boton
             cliente.addVerPedidoButtonListener(e -> {
                 frame.setContentPane(miPedido.getRootPanel());

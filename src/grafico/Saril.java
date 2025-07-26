@@ -49,8 +49,8 @@ public class Saril extends JFrame{
                 }
 
                 int cantidad = Integer.parseInt(cantidadTexto);
-                if (cantidad <= 0) {
-                    throw new IllegalArgumentException("La cantidad debe ser un número positivo.");
+                if (cantidad <= 0 || cantidad >= 51) {
+                    throw new IllegalArgumentException("La cantidad debe ser un número positivo y menor que 50.");
                 }
 
                 // Validar fecha
